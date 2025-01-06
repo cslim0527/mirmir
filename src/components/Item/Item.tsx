@@ -6,17 +6,7 @@ import Image from "next/image";
 
 export type ItemProps = Item;
 
-const Item = ({
-  acc,
-  atk,
-  def,
-  etc,
-  image,
-  level,
-  name,
-  price,
-  rep,
-}: ItemProps) => {
+const Item = ({ acc, atk, def, etc, level, name, price, rep }: ItemProps) => {
   return (
     <Card size="1">
       <Flex gap="6">

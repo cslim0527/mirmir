@@ -1,7 +1,7 @@
 export type ItemTypes = "common";
 
 export interface ItemGroup {
-  name: string;
+  type: string;
   data: Item[];
 }
 
