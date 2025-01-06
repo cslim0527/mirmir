@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchItems } from "@/server-component";
 import { ItemTypes } from "@/types";
+import Items from "@/feat-components/Items";
 
 const CommonItems = async ({
   params,
@@ -9,15 +10,12 @@ const CommonItems = async ({
 }) => {
   const type = (await params).type;
   const response = await fetchItems(type);
-  // const res = type && items ? items?.[type] : undefined;
 
   if (!response?.data) {
     return null;
   }
 
-  console.log("[response]", response);
-
-  return <>{response.type}</>;
+  return <Items {...response} type={type} />;
 };
 
 export default CommonItems;

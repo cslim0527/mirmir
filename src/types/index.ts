@@ -1,10 +1,10 @@
-export type ItemTypes = "common";
+export type Job = "fire" | "water" | "thunder" | "earth" | "dark" | "light";
 
+export type ItemTypes = Job | "common";
 export interface ItemGroup {
-  type: string;
+  title: string;
   data: Item[];
 }
-
 export interface Item {
   price: number;
   acc: number;
