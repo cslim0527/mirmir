@@ -5,6 +5,7 @@ import { Container } from "@radix-ui/themes";
 
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,8 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Theme appearance="dark">
-          <Container size={{ sm: "1", lg: "4" }} px="16px">
+          <Header />
+          <Container size={{ sm: "1", lg: "4" }} px="16px" pb="120px">
             {children}
           </Container>
         </Theme>

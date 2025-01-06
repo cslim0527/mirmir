@@ -14,12 +14,18 @@ export default function Items({ type, data }: ItemsProps) {
   return (
     <Box pt="60px">
       <ItemsNavigation type={type} />
-      <Flex direction="column" gap="16px">
+      <Flex
+        direction={{ initial: "column", lg: "row" }}
+        wrap={{ lg: "wrap" }}
+        gap="16px"
+      >
         {data.map((item) => (
-          <ItemUnit
-            {...item}
-            image={`/assets/images/items/${type}/${item.name}.gif`}
-          />
+          <Box width={{ initial: "100%", lg: "calc(50% - 8px)" }}>
+            <ItemUnit
+              {...item}
+              image={`/assets/images/items/${type}/${item.name}.gif`}
+            />
+          </Box>
         ))}
       </Flex>
     </Box>

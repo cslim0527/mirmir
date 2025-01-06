@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ItemTypes } from "@/types";
-import { TabNav, Box } from "@radix-ui/themes";
+import { TabNav, Box, Container } from "@radix-ui/themes";
 
 interface ItemsNavigationProps {
   type: ItemTypes;
@@ -46,19 +46,21 @@ export default function ItemsNavigation({ type }: ItemsNavigationProps) {
       mb="20px"
       style={{
         position: "fixed",
-        top: 0,
+        top: "50px",
         left: 0,
         zIndex: 1000,
-        backgroundColor: "black",
+        background: "black",
       }}
     >
-      <TabNav.Root>
-        {ITEM_NAVIGATION_MAP.map(({ title, type: _type }) => (
-          <TabNav.Link href={`/items/${_type}`} active={_type === type}>
-            {title}
-          </TabNav.Link>
-        ))}
-      </TabNav.Root>
+      <Container size={{ sm: "1", lg: "4" }}>
+        <TabNav.Root>
+          {ITEM_NAVIGATION_MAP.map(({ title, type: _type }) => (
+            <TabNav.Link href={`/items/${_type}`} active={_type === type}>
+              {title}
+            </TabNav.Link>
+          ))}
+        </TabNav.Root>
+      </Container>
     </Box>
   );
 }
