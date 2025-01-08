@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Box } from "@radix-ui/themes";
 import Link from "next/link";
+import { Container, Box } from "@radix-ui/themes";
 
 export default function Header() {
   return (

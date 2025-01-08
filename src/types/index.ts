@@ -1,3 +1,7 @@
+export type BaseResponse<T> = {
+  data: T;
+};
+
 export type Job = "fire" | "water" | "thunder" | "earth" | "dark" | "light";
 
 export type ItemTypes = Job | "common";
@@ -14,4 +18,11 @@ export interface Item {
   name: string;
   def: number;
   atk: number;
+}
+
+export interface Skill {
+  name: string;
+  level: number;
+  training: number | null;
+  description: string;
 }

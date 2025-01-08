@@ -31,8 +31,8 @@ const ItemUnit = ({
           flexShrink="0"
         >
           <Flex
-            width="50px"
-            height="50px"
+            width="40px"
+            height="40px"
             style={{
               backgroundColor: "#fff",
               borderRadius: "6px",

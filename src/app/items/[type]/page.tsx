@@ -3,7 +3,7 @@ import { fetchItems } from "@/server-component";
 import { ItemTypes } from "@/types";
 import Items from "@/feat-components/Items";
 
-const CommonItems = async ({
+const MirItems = async ({
   params,
 }: {
   params: Promise<{ type: ItemTypes }>;
@@ -18,4 +18,4 @@ const CommonItems = async ({
   return <Items {...response} type={type} />;
 };
 
-export default CommonItems;
+export default MirItems;
