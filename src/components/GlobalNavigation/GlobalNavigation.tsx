@@ -1,71 +1,73 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Box, Card, Flex, Separator, Text } from "@radix-ui/themes";
+import { Box, Button, IconButton, Text } from "@radix-ui/themes";
+import styles from "./GlobalNavigation.module.scss";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { Cross2Icon } from "@radix-ui/react-icons";
+import classNames from "classnames";
+import { usePathname } from "next/navigation";
 
 export interface GlobalNavigationProps {}
 
 export default function GlobalNavigation() {
+  const path = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+  const handleToggleGnb = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleCloseGnb = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    if (isOpen) setIsOpen(false);
+  }, [path]);
+
   return (
-    <Box
-      position="fixed"
-      top={{
-        lg: "130px",
-        md: "130px",
-        sm: "initial",
-        xs: "initial",
-      }}
-      right={{
-        lg: "40px",
-        md: "40px",
-        sm: "initial",
-        xs: "initial",
-      }}
-      bottom={{
-        lg: "initial",
-        md: "initial",
-        sm: "0",
-        xs: "0",
-        initial: "0",
-      }}
-      left={{
-        lg: "initial",
-        md: "initial",
-        sm: "0",
-        xs: "0",
-        initial: "0",
-      }}
-      style={{ zIndex: 9999 }}
-    >
-      <Box
-        display="inline-block"
-        p="16px"
-        width="auto"
-        style={{
-          border: "1px solid #333",
-          borderRadius: "6px",
-          background: "#000",
-        }}
+    <>
+      <IconButton
+        className={styles["btn-toggle-gnb"]}
+        onClick={handleToggleGnb}
       >
-        <Flex direction={{ sm: "row", lg: "column" }} gap="2">
-          <Link href="/skills/fire">
-            <Text as="span" size="2">
+        <MagnifyingGlassIcon width="18" height="18" />
+      </IconButton>
+
+      <Box className={classNames(styles.gnb, { [styles.open]: isOpen })}>
+        <IconButton
+          className={styles["btn-close-gnb"]}
+          onClick={handleCloseGnb}
+        >
+          <Cross2Icon width="18" height="18" color="#fff" />
+        </IconButton>
+        <Box className={styles["gnb-list"]}>
+          <Link scroll={false} href="/skills/fire">
+            <Text as="span" size="3">
               무공
             </Text>
           </Link>
-          <Separator orientation="horizontal" size="3" />
-          <Link href="/items/common">
-            <Text as="span" size="2">
+
+          <Link scroll={false} href="/items/common">
+            <Text as="span" size="3">
               아이템
             </Text>
           </Link>
-          <Separator orientation="horizontal" size="3" />
-          <Link href="/hair">
-            <Text as="span" size="2">
+
+          <Link scroll={false} href="/hair">
+            <Text as="span" size="3">
               머리모양
             </Text>
           </Link>
-        </Flex>
+
+          <Link scroll={false} href="/map">
+            <Text as="span" size="3">
+              지도
+            </Text>
+          </Link>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }

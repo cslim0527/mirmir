@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Box, Text, Card, Badge } from "@radix-ui/themes";
+import { Flex, Box } from "@radix-ui/themes";
 
 import ItemUnit from "@/components/ItemUnit";
 

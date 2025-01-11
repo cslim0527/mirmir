@@ -1,0 +1,69 @@
+.btn-toggle-gnb {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9998;
+  display: none;
+
+  @media (max-width: 767px) {
+    display: flex;
+  }
+}
+
+.btn-close-gnb {
+  margin-bottom: 20px;
+  display: none;
+  margin-left: auto;
+
+  @media (max-width: 767px) {
+    display: flex;
+  }
+}
+
+.gnb {
+  position: fixed;
+  top: 120px;
+  right: 60px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 16px 24px;
+  color: #999;
+  font-weight: bold;
+  z-index: 9999;
+  background-color: #000;
+
+  @media (max-width: 767px) {
+    border: 0;
+    border-radius: 0;
+    top: 0;
+    left: 100%;
+    bottom: 0;
+    right: 0;
+
+    &.open {
+      left: 0;
+    }
+  }
+}
+
+.gnb-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+
+  @media (max-width: 767px) {
+    display: grid;
+    gap: 0;
+    grid-template-columns: repeat(2, 1fr); /* 두 열, 각각 동일한 크기 */
+
+    a {
+      display: block;
+      padding: 40px;
+
+      &:active {
+        background-color: yellow;
+      }
+    }
+  }
+}
